@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * KalaVaras Global Styles
+ * Design tokens from Document 3 Section 3.2
+ *
+ * Colour palette:
+ * --indigo-deep: #2D1B69 (primary brand)
+ * --saffron: #E8593C (accent)
+ * --gold: #D4AF37 (highlight)
+ * --teal: #0F6E56 (success)
+ * --stone: #F4F3F0 (background)
+ * --ink: #1A1A1A (body text)
+ * --mist: #E8E6E0 (borders)
+ */
+
+:root {
+  --indigo-deep: #2D1B69;
+  --saffron: #E8593C;
+  --gold: #D4AF37;
+  --teal: #0F6E56;
+  --stone: #F4F3F0;
+  --ink: #1A1A1A;
+  --mist: #E8E6E0;
+}
+
+/* Base typography — 16px base with 1.7 line-height as specified */
+html {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Marathi-first: default to Devanagari font family */
+body {
+  font-family: 'Noto Sans Devanagari', 'Inter', system-ui, sans-serif;
+  background-color: var(--stone);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* English text override — applied via lang attribute or className */
+[lang="en"] body,
+.font-english {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Headings — Marathi uses Noto Serif Devanagari Bold */
+h1, h2, h3, h4 {
+  font-family: 'Noto Serif Devanagari', 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--indigo-deep);
+}
+
+[lang="en"] h1,
+[lang="en"] h2,
+[lang="en"] h3,
+[lang="en"] h4 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Technique notation and rhythm data */
+.font-technique {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Mobile-first: larger base font for Devanagari on small screens */
+@media (max-width: 480px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+/* Minimum touch target size — 48px as specified in Doc 3 */
+button, a, [role="button"] {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+/* Respect prefers-reduced-motion — disable all animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--stone);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mist);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--indigo-deep);
+}

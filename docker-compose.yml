@@ -1,0 +1,103 @@
+version: "3.9"
+
+# KalaVaras — Local Development Docker Compose
+#
+# Starts the three infrastructure services needed to run the full stack locally:
+#   - PostgreSQL 15 (database)
+#   - Redis 7 (job queues + rate limiting)
+#   - Slit-scan Python microservice
+#
+# Usage:
+#   docker compose up -d         # Start all services in background
+#   docker compose down          # Stop services (preserves data volumes)
+#   docker compose down -v       # Stop and DELETE all data volumes
+#   docker compose logs -f       # Follow all service logs
+#
+# After starting, run the Node.js API and Vite frontend separately:
+#   npm run dev (from root)
+
+services:
+
+  # ─── PostgreSQL 15 ─────────────────────────────────────────────────────────
+  postgres:
+    image: postgres:15-alpine
+    container_name: kalavaras_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: kalavaras
+      POSTGRES_PASSWORD: kalavaras_dev
+      POSTGRES_DB: kalavaras_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kalavaras -d kalavaras_dev"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # ─── Redis 7 ───────────────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: kalavaras_redis
+    restart: unless-stopped
+    command: >
+      redis-server
+      --maxmemory 256mb
+      --maxmemory-policy allkeys-lru
+      --save 60 1
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+  # ─── Slit-Scan Microservice ─────────────────────────────────────────────────
+  slit-scan:
+    build:
+      context: ./services/slit-scan
+      dockerfile: Dockerfile
+    container_name: kalavaras_slit_scan
+    restart: unless-stopped
+    environment:
+      # Internal auth secret — must match API's INTERNAL_SERVICE_SECRET
+      INTERNAL_SERVICE_SECRET: ${INTERNAL_SERVICE_SECRET}
+      # Cloudflare R2 credentials from .env
+      R2_ACCOUNT_ID: ${R2_ACCOUNT_ID}
+      R2_ACCESS_KEY_ID: ${R2_ACCESS_KEY_ID}
+      R2_SECRET_ACCESS_KEY: ${R2_SECRET_ACCESS_KEY}
+      R2_BUCKET_NAME: ${R2_BUCKET_NAME}
+      R2_PUBLIC_URL: ${R2_PUBLIC_URL}
+      PORT: "5000"
+      FLASK_DEBUG: "0"
+    ports:
+      - "5000:5000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  default:
+    name: kalavaras_network

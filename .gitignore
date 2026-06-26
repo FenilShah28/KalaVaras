@@ -1,0 +1,80 @@
+# ========================
+# Dependencies
+# ========================
+node_modules/
+.pnp
+.pnp.js
+
+# ========================
+# Environment & Secrets
+# ========================
+.env
+.env.local
+.env.production
+.env.staging
+*.pem
+*.key
+*.cert
+# Google OAuth credentials (required files — must never be committed)
+credentials.json
+token.json
+# AWS/R2 credential files
+.aws/
+
+
+# ========================
+# Build Outputs
+# ========================
+dist/
+build/
+.next/
+out/
+
+# ========================
+# Logs
+# ========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ========================
+# Python
+# ========================
+/services/slit-scan/__pycache__/
+/services/slit-scan/*.pyc
+/services/slit-scan/.venv/
+/services/slit-scan/venv/
+*.egg-info/
+
+# ========================
+# Testing & Coverage
+# ========================
+coverage/
+.nyc_output/
+
+# ========================
+# IDE & OS
+# ========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ========================
+# Misc
+# ========================
+.tmp/
+*.tgz
+.cache/
+
+# ========================
+# Temp conversion files
+# ========================
+convert_docx.ps1
+KalaVaras_Product_Spec.md
+KalaVaras_Spec_UTF8.md
