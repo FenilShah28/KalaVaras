@@ -6,7 +6,6 @@ import { env } from '../config/env.js';
 import { logger } from '../utils/logger.js';
 import { getIO } from '../config/socket.js';
 import type { SlitScanJobData } from '../config/queue.js';
-import { redis } from '../config/redis.js';
 
 /**
  * Slit-scan worker — processes source_video assets.

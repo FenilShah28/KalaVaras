@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { practiceApi, cardsApi, type StrokeCard, type ProgressDashboard } from '../utils/api';
+import { practiceApi, type ProgressDashboard } from '../utils/api';
 import { useAuth } from '../hooks/useAuth';
-import { Button } from '../components/Button';
 
 function StatCard({ label, value, icon }: { label: string; value: number | string; icon: string }) {
   return (

@@ -26,7 +26,7 @@ if (env.USE_LOCAL_MOCKS) {
   emailQueue = mockQueue;
 } else {
   slitScanQueue = new Queue('slit-scan', {
-    connection,
+    connection: connection as any,
     defaultJobOptions: {
       attempts: 3,
       backoff: { type: 'exponential', delay: 5000 },
@@ -36,7 +36,7 @@ if (env.USE_LOCAL_MOCKS) {
   });
 
   emailQueue = new Queue('email', {
-    connection,
+    connection: connection as any,
     defaultJobOptions: {
       attempts: 5,
       backoff: { type: 'exponential', delay: 2000 },

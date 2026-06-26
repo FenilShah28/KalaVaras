@@ -1,14 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-
-const traditions = [
-  { key: 'warli', emoji: '🌿' },
-  { key: 'kolam', emoji: '✦' },
-  { key: 'pichwai', emoji: '🪷' },
-  { key: 'madhubani', emoji: '🦚' },
-];
-
 export function Navbar() {
   const { t, i18n } = useTranslation();
   const { user, isAuthenticated, logout } = useAuth();

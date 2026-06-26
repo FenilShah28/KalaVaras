@@ -11,8 +11,8 @@ const TRADITIONS = [
 ];
 
 export default function HomePage() {
-  const { t, i18n } = useTranslation();
-  const { isAuthenticated, user } = useAuth();
+  const { t } = useTranslation();
+  const { isAuthenticated } = useAuth();
 
   return (
     <div className="min-h-screen bg-stone">

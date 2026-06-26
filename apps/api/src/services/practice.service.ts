@@ -142,9 +142,9 @@ export async function getProgressForCard(strokeCardId: string, userId: string) {
     return { totalAttempts: 0, bestDeviation: null, latestRhythm: null, trend: [] };
   }
 
-  const withScores = sessions.filter(s => s.deviationScore !== null);
+  const withScores = sessions.filter((s: any) => s.deviationScore !== null);
   const bestDeviation = withScores.length > 0
-    ? Math.min(...withScores.map(s => s.deviationScore!))
+    ? Math.min(...withScores.map((s: any) => s.deviationScore!))
     : null;
 
   const latestRhythm = sessions[0]?.rhythmAccuracy ?? null;
@@ -152,7 +152,7 @@ export async function getProgressForCard(strokeCardId: string, userId: string) {
   // Trend: last 10 sessions with scores (for sparkline charts)
   const trend = sessions
     .slice(0, 10)
-    .map(s => ({
+    .map((s: any) => ({
       attempt: s.attemptNumber,
       deviation: s.deviationScore,
       rhythm: s.rhythmAccuracy,
@@ -191,7 +191,7 @@ export async function getUserStreak(userId: string) {
   let longestStreak = 0;
   let tempStreak = 1;
 
-  const dates = rows.map(r => new Date(r.day));
+  const dates = rows.map((r: any) => new Date(r.day));
 
   // Check if user practised today or yesterday (grace period)
   const daysSinceLastPractice = Math.floor(
