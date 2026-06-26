@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/v1/:path*",
+      "destination": "https://YOUR-RENDER-BACKEND-URL.onrender.com/api/v1/:path*"
+    },
+    {
+      "source": "/socket.io/:path*",
+      "destination": "https://YOUR-RENDER-BACKEND-URL.onrender.com/socket.io/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

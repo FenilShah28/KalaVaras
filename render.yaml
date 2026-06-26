@@ -1,0 +1,54 @@
+services:
+  # Backend API Web Service
+  - type: web
+    name: kalavaras-api
+    env: node
+    rootDir: apps/api
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: API_PORT
+        value: 10000
+      - key: DATABASE_URL
+        fromDatabase:
+          name: kalavaras-db
+          property: connectionString
+      # Redis connection (We suggest using a free Upstash Redis instance)
+      - key: REDIS_URL
+        value: "redis://your-free-upstash-redis-url"
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: INTERNAL_SERVICE_SECRET
+        generateValue: true
+      # Set this to your live Vercel frontend URL once deployed
+      - key: FRONTEND_URL
+        value: "https://your-app-name.vercel.app"
+      # Cloudflare R2 credentials (fill in your own in Render dashboard)
+      - key: R2_ACCOUNT_ID
+        value: "your-r2-account-id"
+      - key: R2_ACCESS_KEY_ID
+        value: "your-r2-access-key-id"
+      - key: R2_SECRET_ACCESS_KEY
+        value: "your-r2-secret-access-key"
+      - key: R2_BUCKET_NAME
+        value: "your-r2-bucket-name"
+      - key: R2_PUBLIC_URL
+        value: "https://your-r2-public-subdomain.com"
+      # Email credentials (Resend)
+      - key: RESEND_API_KEY
+        value: "re_your_api_key"
+      - key: EMAIL_FROM
+        value: "noreply@yourdomain.com"
+      # Disable mocks in production
+      - key: USE_LOCAL_MOCKS
+        value: "false"
+
+# Automatically provisions a free PostgreSQL database on Render
+databases:
+  - name: kalavaras-db
+    plan: free
