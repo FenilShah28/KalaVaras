@@ -1,132 +1,246 @@
-
-<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>KalaVaras Project Overview</title>
-<style>
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  line-height: 1.6;
-  color: #1A1A1A;
-  margin: 40px;
-}
-h1 {
-  color: #2D1B69;
-  font-family: 'Georgia', serif;
-  border-bottom: 2px solid #D4AF37;
-  padding-bottom: 10px;
-  font-size: 24pt;
-}
-h2 {
-  color: #2D1B69;
-  font-family: 'Georgia', serif;
-  margin-top: 30px;
-  font-size: 18pt;
-  border-bottom: 1px solid #E8E6E0;
-  padding-bottom: 5px;
-}
-h3 {
-  color: #E8593C;
-  font-size: 14pt;
-  margin-top: 20px;
-}
-p {
-  font-size: 11pt;
-  margin-bottom: 15px;
-}
-ul {
-  margin-bottom: 15px;
-  padding-left: 20px;
-}
-li {
-  font-size: 11pt;
-  margin-bottom: 5px;
-}
-.alert {
-  padding: 15px;
-  border-left: 4px solid #D4AF37;
-  background-color: #F4F3F0;
-  margin-bottom: 20px;
-  font-style: italic;
-}
-code {
-  font-family: Consolas, monospace;
-  background-color: #F4F3F0;
-  padding: 2px 4px;
-  font-size: 10pt;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>KalaVaras — Complete Technical Reference Guide</title>
+    <style>
+        body {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            color: #1A1A1A;
+            line-height: 1.6;
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #FFFFFF;
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            color: #2D1B69;
+            font-size: 28px;
+            border-bottom: 2px solid #E8593C;
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+        h2 {
+            font-family: 'Georgia', serif;
+            color: #E8593C;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2D1B69;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+        ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .title-page {
+            text-align: center;
+            padding: 100px 0;
+            page-break-after: always;
+        }
+        .title {
+            font-family: 'Georgia', serif;
+            font-size: 36px;
+            color: #2D1B69;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #555555;
+            margin-bottom: 50px;
+        }
+        .metadata {
+            font-style: italic;
+            color: #666666;
+            margin-top: 100px;
+            line-height: 1.8;
+        }
+        .code-block {
+            font-family: 'Consolas', monospace;
+            background-color: #F4F3F0;
+            border: 1px solid #E8E6E0;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 16px 0;
+            white-space: pre-wrap;
+            font-size: 13px;
+        }
+        .highlight {
+            background-color: #FFF5F2;
+            border-left: 4px solid #E8593C;
+            padding: 12px;
+            margin: 16px 0;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #E8E6E0;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #2D1B69;
+            color: #FFFFFF;
+        }
+        tr:nth-child(even) {
+            background-color: #F9F9F9;
+        }
+    </style>
 </head>
 <body>
-<h1>कलावारस — KalaVaras</h1>
-<h3><strong>Folk Art Motor Memory Platform</strong></h3>
-<div class="alert note">Preserving the invisible, embodied knowledge of traditional Indian brush and hand movements in Maharashtra.</div>
-<p>KalaVaras ("Art Heir" in Marathi) is a bilingual digital platform designed to capture the motor memory of master artisans in traditional folk art styles—specifically <strong>Warli</strong>, <strong>Kolam</strong>, <strong>Pichwai</strong>, and <strong>Madhubani</strong>—and transfer that knowledge to young apprentices through interactive canvas tracing, real-time video analysis, and structured practice.</p>
-<p>---</p>
-<h2>📂 The Problem It Solves</h2>
-<p>Traditional art preservation typically focuses on archiving finished paintings, which leaves a significant gap in documenting the actual technique.</p>
-<p>1. <strong>The Documentation Gap</strong>: Existing archives preserve static imagery of finished art but fail to capture the step-by-step motor memory (the pressure, rhythm, angles, and trajectory of the brush) that goes into creating it.<br>2. <strong>The Technology Gap</strong>: Professional motion capture setup is too expensive, complex, and inaccessible in rural communities. <br>3. <strong>The Pedagogy Gap</strong>: Apprentices in villages often learn from low-resolution videos shared on WhatsApp, which lacks slow-motion, angle-specific, or rhythmic learning feedback. This results in the gradual loss of stylistic nuances across generations.</p>
-<p>---</p>
-<h2>🎨 What KalaVaras Does</h2>
-<p>KalaVaras sits between traditional master artisans and young apprentices to create an end-to-end learning environment:</p>
-<p>``<code>mermaid<br>graph TD<br>    A[Master Artisan] --&gt;|Records drawing hand| B(KalaVaras API)<br>    B --&gt;|Slit-Scan Video Pipeline| C(Reference Guidelines)<br>    C --&gt;|Dotted Guide Path &amp; Waveform| D[Apprentice Learner]<br>    D --&gt;|Practices tracing via Webcam| E(Real-Time Score Engine)<br>    E --&gt;|Accuracy &amp; Rhythm Feedback| F(Progress Dashboard)<br></code>`<code></p>
-<p>1. <strong>Capture</strong>: A master artisan records their hand drawing a specific motif (a "Stroke Card") on their device.<br>2. <strong>Analyze</strong>: The backend processes the video to create a horizontal slit-scan time-composite image and a rhythm waveform profile, mapping exactly how the brush moved.<br>3. <strong>Practice</strong>: Apprentice learners trace over these templates in real-time, matching the speed, direction, and shape of the master's hand.</p>
-<p>---</p>
-<h2>✨ Key Features</h2>
-<h3>1. Interactive Tracing Canvas</h3>
-<ul><li><strong>Webcam Integration</strong>: Apprentice draws directly over a live feed of their hand (webcam) or a clean drawing slate.</li>
-<li><strong>Dynamic Guidelines (Ghost Paths)</strong>: Dotted guides are dynamically rendered depending on the card selected (e.g., Warli triangles, Pichwai lotus petals, or Archimedean spirals).</li>
-<li><strong>Teal Brush Feedback</strong>: Displays the user’s real-time stroke trail on top of the webcam feed.</li>
-</ul>
-<h3>2. Live Evaluation Engine</h3>
-<ul><li><strong>Accuracy Matcher</strong>: Evaluates the mathematical distance deviation between the learner's drawing and the guide shape.</li>
-<li><strong>Rhythm Analyzer</strong>: Evaluates the standard deviation of drawing speed to ensure smooth, continuous, and rhythmic brush control.</li>
-</ul>
-<h3>3. Dual-Role Architecture</h3>
-<ul><li><strong>Artisan Mode</strong>: One-tap creation of Stroke Cards. Artisans write descriptions in Marathi/English, assign difficulty ratings, set visibility options (Public, Community, or Private), and publish them.</li>
-<li><strong>Learner Mode</strong>: Interactive practice, library search, and self-evaluation dashboards.</li>
-</ul>
-<h3>4. Progress Dashboard &amp; Streaks</h3>
-<ul><li>Tracks daily practice streaks to build learning consistency.</li>
-<li>Displays line charts showing accuracy and rhythm improvements over time.</li>
-</ul>
----
-<h2>⚡ How It Is Helpful &amp; Impact Created</h2>
-<h3>For Master Artisans</h3>
-<ul><li><strong>Heritage Preservation</strong>: Provides a free, dignified way to immortalize their stylistic variations and lineage.</li>
-<li><strong>Content Ownership</strong>: Enforces strict role-based access checks (RBAC) so that artisans retain complete ownership of the digital representations of their art.</li>
-</ul>
-<h3>For Apprentices</h3>
-<ul><li><strong>Self-Guided Learning</strong>: Provides instant pedagogical feedback (Accuracy and Rhythm percentages) without needing constant physical supervision.</li>
-<li><strong>Low-Cost Access</strong>: Optimized to load in under 4 seconds on low-end Android mobile devices over 3G networks, ensuring it works in remote villages.</li>
-</ul>
-<h3>For Academics &amp; NGOs</h3>
-<ul><li><strong>Lineage Graphs</strong>: Visualizes how different styles and motifs relate across traditions.</li>
-<li><strong>Research Data</strong>: Supports structured data exports containing provenance and citation tags.</li>
-</ul>
----
-<h2>🛠️ Technical Architecture &amp; Setup</h2>
-<h3>Repository Structure</h3>
-</code>`<code>
-d:/FENIL/PROJECT 1/
-├── apps/
-│   ├── web/          # React 18 SPA (Vite + Tailwind CSS + i18next)
-│   └── api/          # Node.js 20 + Express 5 + Drizzle/PGLite
-├── services/
-│   └── slit-scan/    # Python 3.11 + Flask + FFmpeg (Slit-scan engine)
-└── .tmp/
-    └── pglite_db/    # Persistent local SQLite folder (Dev mode)
-</code>`<code>
-<h3>Quick Start (Local Development)</h3>
-<p>#### 1. Configure the Environment<br>Copy the example environment file and set up your variables:<br></code>`<code>bash<br>cp .env.example .env<br></code>`<code><br>*Note: Set </code>USE_LOCAL_MOCKS=true<code> to test the application locally without requiring external PostgreSQL, Redis, or Docker services.*</p>
-<p>#### 2. Install Dependencies<br></code>`<code>bash<br>npm install<br></code>`<code></p>
-<p>#### 3. Run the Backend API<br></code>`<code>bash<br>cd apps/api<br>npm run dev<br><h1>Starts backend server on http://localhost:4000</h1><br></code>`<code></p>
-<p>#### 4. Run the Frontend Web App<br></code>`<code>bash<br>cd apps/web<br>npm run dev<br><h1>Starts Vite server on http://localhost:5173 (or 5174 if busy)</h1><br></code>`<code></p>
-<p>---</p>
-<h2>🔒 Security Design</h2>
-<ul><li><strong>JWT Auth</strong>: Session access tokens are kept in-memory (Zod-validated) and refresh tokens reside in secure </code>httpOnly<code> cookies.</li>
-<li><strong>CORS Protection</strong>: Dynamically allows any local port (5173, 5174, etc.) in development, while locking down strictly to the production </code>FRONTEND_URL` in production.</li>
-<li><strong>Database Parameterization</strong>: Zero raw SQL interpolation—all queries are parameterized using Drizzle ORM to block SQL Injection.</li>
-</ul>
+
+    <!-- ========================================== -->
+    <!-- 1. TITLE PAGE -->
+    <!-- ========================================== -->
+    <div class="title-page">
+        <div class="title">KalaVaras — कलावारस</div>
+        <div class="subtitle">Folk Art Motor Memory Platform</div>
+        <hr style="width: 100px; border: 1px solid #E8593C; margin: 30px auto;">
+        <div style="font-size: 20px; font-weight: bold; color: #2D1B69;">Complete Technical Reference & Architecture Guide</div>
+        <div class="metadata">
+            <strong>Author:</strong> Technical Documentation Specialist<br>
+            <strong>Version:</strong> 1.0 (Innovation Portfolio Edition)<br>
+            <strong>Core Platform:</strong> React 18, Node.js 20, Flask, FFmpeg<br>
+            <strong>Databases:</strong> PostgreSQL 18 & PGLite (WASM SQLite)<br>
+            <strong>Deployment Target:</strong> Vercel & Render
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 2. PROJECT OVERVIEW -->
+    <!-- ========================================== -->
+    <h1>1. Project Overview & Product Vision</h1>
+    <p>
+        <strong>KalaVaras</strong> ("Art Heir" in Marathi) is a bilingual (Marathi and English) digital platform built to capture the invisible motor memory of master artisans in traditional Indian folk art styles—specifically <strong>Warli</strong>, <strong>Kolam</strong>, <strong>Pichwai</strong>, and <strong>Madhubani</strong>—and transfer this embodied knowledge to young apprentices.
+    </p>
+    <p>
+        Unlike finished art portfolios, which only preserve static outcomes, KalaVaras captures the dynamics of creation: the pressure, speed, trajectory, and rhythm of the hand. It serves as a living innovation portfolio showing how design thinking, motor learning neuroscience, and appropriate technology can preserve endangered cultural heritage in rural Maharashtra.
+    </p>
+
+    <h2>1.1 The Gaps KalaVaras Addresses</h2>
+    <ul>
+        <li><strong>Documentation Gap:</strong> Existing digital archives preserve only high-resolution static images of final paintings. They fail to record the stroke trajectory, velocity profile, and drawing mechanics that define a tradition.</li>
+        <li><strong>Technology Gap:</strong> Professional motion capture setups (using specialized gloves or infrared sensors) are expensive, fragile, and inaccessible in rural communities. KalaVaras uses simple, web-based webcam tracking.</li>
+        <li><strong>Pedagogy Gap:</strong> Remote apprentices often learn from static images or low-resolution video clips sent over messaging apps, which lacks structure and real-time guidance. KalaVaras provides step-by-step guidance and immediate quantitative feedback.</li>
+    </ul>
+
+    <!-- ========================================== -->
+    <!-- 3. TECHNOLOGY STACK -->
+    <!-- ========================================== -->
+    <h1>2. Complete Technology Stack & Architecture</h1>
+    <p>
+        The platform is designed as a modular monorepo to ensure seamless coordination between frontend, backend, and heavy processing services.
+    </p>
+
+    <h2>2.1 Frontend Client (apps/web)</h2>
+    <ul>
+        <li><strong>React 18 & Vite:</strong> Used for building a highly responsive Single Page Application (SPA) with fast hot-reloads.</li>
+        <li><strong>Tailwind CSS:</strong> Provides utility-first styling for maximum flexibility, customized with the brand's curated design tokens (Indigo Deep, Saffron, Gold, Stone, Ink).</li>
+        <li><strong>i18next:</strong> Handles full bilingual localization (Marathi and English) to prioritize rural accessibility.</li>
+        <li><strong>Recharts & HTML5 Canvas:</strong> Used for rendering stroke progress charts and custom interactive tracing overlays.</li>
+    </ul>
+
+    <h2>2.2 Backend API (apps/api)</h2>
+    <ul>
+        <li><strong>Node.js 20 & Express 5:</strong> Powers the central RESTful API endpoints and WebSocket server.</li>
+        <li><strong>Drizzle ORM:</strong> An SQL-first object-relational mapper providing type-safe parameterized queries to prevent SQL injections.</li>
+        <li><strong>PGLite:</strong> An in-memory/local WASM PostgreSQL database used in local development ("mock mode") to achieve zero-dependency startup.</li>
+        <li><strong>PostgreSQL 18:</strong> The production database provisioned on Render.</li>
+        <li><strong>BullMQ & ioredis:</strong> Powers the background job processing pipeline for handling video uploads and notifications.</li>
+    </ul>
+
+    <h2>2.3 Slit-Scan Engine (services/slit-scan)</h2>
+    <ul>
+        <li><strong>Python 3.11 & Flask:</strong> Provides a lightweight microservice dedicated to heavy media processing tasks.</li>
+        <li><strong>FFmpeg & OpenCV:</strong> Utilized for frame extraction, time-composite slit-scan generation, and drawing waveform rhythm profiling.</li>
+    </ul>
+
+    <h2>2.4 Infrastructure & Cloud Platforms</h2>
+    <ul>
+        <li><strong>Vercel:</strong> Hosts the frontend application, utilizing server rewrites to proxy API requests and bypass CORS issues.</li>
+        <li><strong>Render:</strong> Hosts the database instance and the Express backend API service.</li>
+        <li><strong>Cloudflare R2:</strong> S3-compatible object storage used for storing user-submitted practice videos and artisan-recorded templates.</li>
+        <li><strong>Resend:</strong> Handles automated transaction emails (account verification, password resets).</li>
+    </ul>
+
+    <!-- ========================================== -->
+    <!-- 4. CORE FEATURES -->
+    <!-- ========================================== -->
+    <h1>3. Core Features & Implementation Details</h1>
+
+    <h2>3.1 Interactive Tracing Canvas</h2>
+    <p>
+        The tracing canvas is the core learning space. It overlays the user's drawing board with the master's template path.
+    </p>
+    <ul>
+        <li><strong>Webcam Overlay:</strong> Apprentices place their drawing boards under their device's webcam. The canvas draws the digital guides directly over the live camera feed.</li>
+        <li><strong>Dynamic Guidelines (Ghost Paths):</strong> Tracing templates (such as Warli triangles or Kolam loops) are rendered as dashed SVG overlay lines.</li>
+        <li><strong>Brush Feedback:</strong> The canvas renders a teal trail matching the user's real-time stroke. This helps the user match the path and rhythm of the reference card.</li>
+    </ul>
+
+    <h2>3.2 Live Evaluation Engine</h2>
+    <p>
+        Instead of checking just the final image, the engine evaluates the process using two metrics:
+    </p>
+    <ul>
+        <li><strong>Accuracy Matcher:</strong> Computes the spatial deviation between the coordinates of the apprentice's path and the target guide path, rewarding shape fidelity.</li>
+        <li><strong>Rhythm Analyzer:</strong> Evaluates the drawing speed consistency. A master's brush flows smoothly, whereas a beginner often hesitates. The engine calculates the velocity standard deviation to score hand control.</li>
+    </ul>
+
+    <h2>3.3 Role-Based Workflows</h2>
+    <ul>
+        <li><strong>Artisan Publishing:</strong> Master artisans can record a video of themselves drawing a pattern, upload it, specify details (English/Marathi descriptions, difficulty), and publish it as a "Stroke Card".</li>
+        <li><strong>Apprentice Practice:</strong> Apprentices browse the library, select cards, practice them, and track their scores over time to build muscle memory.</li>
+    </ul>
+
+    <!-- ========================================== -->
+    <!-- 5. SECURITY DESIGN -->
+    <!-- ========================================== -->
+    <h1>4. Security Architecture</h1>
+    <p>
+        Security is integrated into all system boundaries to protect artisan intellectual property and ensure platform stability:
+    </p>
+    <ul>
+        <li><strong>Token Security:</strong> JWT Access Tokens are kept strictly in-memory (Zod-validated) and Refresh Tokens are stored in secure <code>httpOnly</code>, <code>SameSite=Strict</code> cookies.</li>
+        <li><strong>Role-Based Access Control (RBAC):</strong> Middlewares strictly enforce access rights. Only verified artisans can edit or delete their own Stroke Cards, and admins hold global resource management rights.</li>
+        <li><strong>CORS Protection:</strong> Dynamically locks down access to the production frontend URL in production mode, while permitting local host development ports in local mode.</li>
+        <li><strong>Audit Logging:</strong> Every system mutation (resource creation, modification, authentication attempts) writes a structured record to the database audit trail to support administrative tracking.</li>
+    </ul>
+
+    <!-- ========================================== -->
+    <!-- 6. KEY DESIGN DECISIONS -->
+    <!-- ========================================== -->
+    <h1>5. Key Design Decisions & Interview Rationale</h1>
+
+    <h2>5.1 Why Decouple the Slit-Scan Engine into Python?</h2>
+    <p class="highlight">
+        "Processing video files and generating time-composite slit-scan graphics is extremely CPU-heavy. Node.js is single-threaded and would block incoming API requests during video processing. Decoupling this logic to a specialized Python Flask container using FFmpeg ensures our Node.js server remains responsive, and allows scaling the heavy media worker independently."
+    </p>
+
+    <h2>5.2 Why PGLite Local Mock Mode?</h2>
+    <p class="highlight">
+        "Setting up local Docker, Redis, and PostgreSQL databases is a major barrier for new developers or when working offline. By implementing a toggle (USE_LOCAL_MOCKS=true) that spins up PGLite (in-memory PostgreSQL) and in-memory Redis mocks, developers can clone the project and run it instantly with zero external dependencies."
+    </p>
+
+    <h2>5.3 Why Vercel Rewrites for the API?</h2>
+    <p class="highlight">
+        "In standard setups, frontends make requests to a different domain (e.g., api.onrender.com), which triggers CORS preflight OPTIONS requests. This adds latency. By using Vercel rewrites (routing /api/v1/* to Render), Vercel proxies the requests, making the API appear to be on the same origin. This removes CORS issues and speeds up request-response times."
+    </p>
+
 </body>
 </html>
