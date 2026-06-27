@@ -44,6 +44,9 @@ services:
         value: "re_your_api_key"
       - key: EMAIL_FROM
         value: "noreply@yourdomain.com"
+      # Slit-scan processing service URL (if using external service)
+      - key: SLIT_SCAN_SERVICE_URL
+        value: "http://localhost:5000"
       # Disable mocks in production
       - key: USE_LOCAL_MOCKS
         value: "false"
