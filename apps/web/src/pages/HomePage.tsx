@@ -28,7 +28,7 @@ export default function HomePage() {
           <div className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-xs font-medium mb-6 backdrop-blur-sm border border-white/20">
             {t('home.tagBadge')}
           </div>
-          <h1 className="text-4xl sm:text-6xl font-bold font-devanagari-serif mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-6xl font-bold font-devanagari-serif mb-6 leading-tight text-white">
             {t('app.name')}
           </h1>
           <p className="text-xl text-white/80 font-devanagari mb-10 max-w-2xl mx-auto leading-relaxed">
